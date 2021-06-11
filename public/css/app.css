@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-@charset "UTF-8";
+/* @charset "UTF-8"; */
 
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
@@ -10900,6 +10900,34 @@ a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6;
+  }
+}
+
+/* My css starts here */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.nav-item{
+  font-size: 16px;
+}
+ul li{
+  list-style-type: none;
+}
+ul li a{
+  color: #726868;
+}
+.section{
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 600px){
+  footer  h3{
+    text-align: center;
+  }
+  footer ul li{
+    text-align: center;
   }
 }
 

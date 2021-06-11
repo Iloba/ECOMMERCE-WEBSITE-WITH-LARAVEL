@@ -70,6 +70,9 @@
                                 </div>
                             </li>
                         @endguest
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Cart(0)</a>
+                        </li>
                     </ul>
                 </div>
             </div>
