@@ -18,12 +18,13 @@ use App\Http\Controllers\ProductController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
+//Registering My Routes
 Route::get('/', [ProductController::class, 'index'])->name('home');
 
-//Registering My Routes
+//login user
 Route::post('/login', [UserController::class, 'loginUser'])->name('login_user');
 
+//Get login route
 Route::get('/login', function(){
     return view('my_auth.login');
 })->name('login');

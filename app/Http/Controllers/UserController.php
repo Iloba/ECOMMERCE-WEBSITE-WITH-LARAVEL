@@ -11,6 +11,14 @@ class UserController extends Controller
     //Login User
     public function loginUser(Request $request){
 
+    //Validate Form
+    $request->validate([
+        'email' => 'required',
+        'password' => 'required'
+    ]);
+
+
+
       //Check if Email Exists and fetch all data  
       $user = User::where(['email' => $request->email])->first();
       
@@ -18,7 +26,7 @@ class UserController extends Controller
     //Compare user Password and Pasword in Database
     //if user exists continue to check for password confirmation
     if($user){
-        if(!$user || !Hash::check($request->password, $user->password)){
+        if(!Hash::check($request->password, $user->password)){
             return back()->with('error', 'Incorrect Password');
         }else{
     
@@ -28,7 +36,7 @@ class UserController extends Controller
             
         }
     }else{
-        return back()->with('error', 'user records not found');  
+        return back()->with('error', 'User records not found');  
     }
    
       

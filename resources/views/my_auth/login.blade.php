@@ -15,7 +15,7 @@
                             <form action="{{route('login_user')}}" method="POST">
                                 @csrf
                                  <div class="mb-3">
-                                    <input name="email" type="text" class="form-control" placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon1">
+                                    <input name="email" type="text" class="form-control" placeholder="Email Address" value="{{Old('email')}}"  aria-label="Email" aria-describedby="basic-addon1">
                                 </div>
                             
                                 <div class="mb-3">
