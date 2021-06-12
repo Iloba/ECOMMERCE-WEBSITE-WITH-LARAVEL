@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +15,15 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [ProductController::class, 'index'])->name('home');
 
 //Registering My Routes
-Route::post('/login', [UserController::class, 'loginUser']);
+Route::post('/login', [UserController::class, 'loginUser'])->name('login_user');
+
 Route::get('/login', function(){
     return view('my_auth.login');
 })->name('login');

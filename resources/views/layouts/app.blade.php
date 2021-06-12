@@ -71,16 +71,17 @@
                             </li>
                         @endguest
                         <li class="nav-item">
-                            <a class="nav-link" href="">Cart(0)</a>
+                            <a class="nav-link" href="">Cart <span class="badge badge-success">0</span></a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-
+       
         <main class="py-4">
             @yield('content')
         </main>
+        @include('layouts.footer')
     </div>
 </body>
 </html>
