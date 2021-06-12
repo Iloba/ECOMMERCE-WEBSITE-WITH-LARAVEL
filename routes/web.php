@@ -29,6 +29,9 @@ Route::get('/login', function(){
     return view('my_auth.login');
 })->name('login');
 
+//logout route
+Route::get('logout', [UserController::class, 'logoutUser'])->name('logout');
+
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
