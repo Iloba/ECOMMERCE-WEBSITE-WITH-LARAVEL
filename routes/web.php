@@ -15,14 +15,11 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 //Registering My Routes
 Route::get('/', [ProductController::class, 'index'])->name('home');
 
 //login user
-Route::post('/login', [UserController::class, 'loginUser'])->name('login_user');
+Route::post('login', [UserController::class, 'loginUser'])->name('login_user');
 
 //Get login route
 Route::get('/login', function(){
@@ -32,8 +29,5 @@ Route::get('/login', function(){
 //logout route
 Route::get('logout', [UserController::class, 'logoutUser'])->name('logout');
 
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

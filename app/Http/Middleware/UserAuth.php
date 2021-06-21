@@ -18,7 +18,7 @@ class UserAuth
     {
         //Redirect user back to home page if already logged in
         if($request->path() == 'login' && $request->session()->has('user')){
-            return redirect()->route('home')->with('error', 'you are already logged in');
+            return redirect()->route('home')->with('status', 'you are already logged in');
         }
 
 
