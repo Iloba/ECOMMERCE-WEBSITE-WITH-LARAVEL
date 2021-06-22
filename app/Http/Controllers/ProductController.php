@@ -65,13 +65,17 @@ class ProductController extends Controller
         //Get Session user id
         $userId = Session::get('user')['id'];
 
-     
-        //Get data from database using join
-        $products = DB::table('cart')
-        ->join('products', 'cart.product_id', '=', 'products.id')
-        ->where('cart.user_id', $userId)
-        ->select('products.*')
-        ->get();
+        if(Session::has('user')){
+             //Get data from database using join
+            $products = DB::table('cart')
+            ->join('products', 'cart.product_id', '=', 'products.id')
+            ->where('cart.user_id', $userId)
+            ->select('products.*')
+            ->get();
+        }else{
+            return 'hello';
+        }
+       
 
         
 

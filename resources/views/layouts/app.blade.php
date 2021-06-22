@@ -70,6 +70,9 @@
                                         </form>
                                     </div>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('cart_items')}}">Cart <span class="badge badge-success">{{$total}}</span></a>
+                                </li>
                             @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -99,10 +102,9 @@
                                     </form>
                                 </div>
                             </li>
+                            
                         @endguest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('cart_items')}}">Cart <span class="badge badge-success">{{$total}}</span></a>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
