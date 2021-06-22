@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -39,5 +40,10 @@ class UserController extends Controller
         }else{
             return back()->with('error', 'User records not found');  
         } 
+    }
+
+    public function logoutUser(){
+        Session::forget('user');
+        return redirect()->route('login');
     }
 }

@@ -18,8 +18,15 @@ use App\Http\Controllers\ProductController;
 //Registering My Routes
 Route::get('/', [ProductController::class, 'index'])->name('home');
 
+
+//Add to cart
+Route::post('/add_to_cart', [ProductController::class, 'addToCart'])->name('add_to_cart');
+
 //login user
 Route::post('login', [UserController::class, 'loginUser'])->name('login_user');
+
+//Show Cart Items
+Route::get('cart', [ProductController::class, 'cartItems'])->name('cart_items');
 
 //Get login route
 Route::get('/login', function(){
@@ -27,7 +34,7 @@ Route::get('/login', function(){
 })->name('login');
 
 //logout route
-Route::get('logout', [UserController::class, 'logoutUser'])->name('logout');
+Route::post('logout', [UserController::class, 'logoutUser'])->name('logout');
 
 
 

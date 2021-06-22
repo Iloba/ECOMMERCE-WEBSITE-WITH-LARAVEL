@@ -1,3 +1,14 @@
+@php
+    //Import the controller
+    use App\Http\Controllers\ProductController;
+    $total = 0;
+
+    //If session exists, display cart counter
+    if(session()->has('user')){
+        $total = ProductController::cartCount();
+    }
+@endphp
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -90,7 +101,7 @@
                             </li>
                         @endguest
                         <li class="nav-item">
-                            <a class="nav-link" href="">Cart <span class="badge badge-success">0</span></a>
+                            <a class="nav-link" href="{{route('cart_items')}}">Cart <span class="badge badge-success">{{$total}}</span></a>
                         </li>
                     </ul>
                 </div>

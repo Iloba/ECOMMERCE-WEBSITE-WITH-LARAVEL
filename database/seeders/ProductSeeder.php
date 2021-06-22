@@ -22,7 +22,7 @@ class ProductSeeder extends Seeder
                 'price' => '500000',
                 'category' => 'Mobile Devices',
                 'description' => 'Apple Iphone 11, 250GB 6GB ram',
-                'gallery' => 'iphone11.jpg',
+                'gallery' => 'https://picsum.photos/id/119/3264/2176',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -31,7 +31,7 @@ class ProductSeeder extends Seeder
                 'price' => '500000',
                 'category' => 'Mobile Devices',
                 'description' => 'Apple Iphone X, 150GB 2GB ram',
-                'gallery' => 'iphone11.jpg',
+                'gallery' => 'https://picsum.photos/id/119/3264/2176',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -40,7 +40,7 @@ class ProductSeeder extends Seeder
                 'price' => '200000',
                 'category' => 'Mobile Devices',
                 'description' => 'Apple Iphone 8, 50GB 4GB ram',
-                'gallery' => 'iphone11.jpg',
+                'gallery' => 'https://picsum.photos/id/119/3264/2176',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -49,7 +49,7 @@ class ProductSeeder extends Seeder
                 'price' => '90000',
                 'category' => 'Mobile Devices',
                 'description' => 'Apple Iphone 7 Plus, 50GB 3GB ram',
-                'gallery' => 'iphone11.jpg',
+                'gallery' => 'https://picsum.photos/id/119/3264/2176',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]
