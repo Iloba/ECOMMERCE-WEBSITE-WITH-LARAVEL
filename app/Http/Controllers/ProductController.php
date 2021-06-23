@@ -76,12 +76,6 @@ class ProductController extends Controller
             return 'hello';
         }
        
-
-        
-
-        
-
-
         return view('pages.cart', [
             'products' => $products
         ]);
