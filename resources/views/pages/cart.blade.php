@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        @include('layouts.errors')
         <div class="col-md-12 mb-2">
             @foreach ($products as $product)
                 <div class="card mb-3 p-2">
@@ -12,7 +13,7 @@
                             <h2>{{$product->name}}</h2>
                             <p>{{$product->description}}</p>
                             <h5>N{{$product->price}}</h5>
-                            <form action="">
+                            <form action="{{route('remove_item', $product->id)}}" method="POST">
                                 @csrf
                                 <input type="text" class="d-none" value="{{$product->id}}">
                                 <button type="submit" class="btn btn-danger">Remove from Cart</button>

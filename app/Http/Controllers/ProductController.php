@@ -81,4 +81,15 @@ class ProductController extends Controller
         ]);
         
     }
+
+    //Remove Item from Cart
+    public function removeItem($id){
+        // dd($id);
+
+        $product = Cart::where('product_id', $id)->first();
+        // dd($product);
+        $product->delete();
+
+        return redirect()->back()->with('status', 'Producted Successfully Deleted from Cart');
+    }
 }

@@ -1,4 +1,4 @@
-@if (session('status'))
+@if (Session('status'))
     <div class="alert alert-success">
         {{session('status')}}
     </div>

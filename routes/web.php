@@ -28,6 +28,9 @@ Route::post('login', [UserController::class, 'loginUser'])->name('login_user');
 //Show Cart Items
 Route::get('cart', [ProductController::class, 'cartItems'])->name('cart_items');
 
+//Remove item from cart
+Route::post('remove/{id}', [ProductController::class, 'removeItem'])->name('remove_item');
+
 //Get login route
 Route::get('/login', function(){
     return view('my_auth.login');
