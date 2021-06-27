@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,7 @@ class ProductController extends Controller
     }
 
     //Add to cart
-    public function addToCart(Request $request){
+    public function addToCart(Request $request, Cart $cart){
        
         //Check if a user is logged in before adding to cart
         if($request->session()->has('user')){
@@ -33,12 +34,15 @@ class ProductController extends Controller
             $cart->save();
 
 
+         
             //if product is already in cart
+            //get all users cart items
+           
 
 
 
             //redirect
-            return redirect()->back()->with('status', 'Product Added to Cart');
+            return redirect()->route('home')->with('status', 'Product Added to Cart');
 
            
         }else{
@@ -91,5 +95,59 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->back()->with('status', 'Producted Successfully Deleted from Cart');
+    }
+
+    //Order Now
+    public function orderNow(){
+
+        $userId = Session::get('user')['id'];
+
+
+         //Get data from database using join
+         $products = DB::table('cart')
+         ->join('products', 'cart.product_id', '=', 'products.id')
+         ->where('cart.user_id', $userId)
+         ->select('products.*')
+         ->sum('products.price');
+
+         return view('pages.order' , [
+             'products' => $products
+         ]);
+
+    }
+
+    //Place Order
+    public function placeOrder(Request $request){
+        
+        //Get Session ID
+        $userId = Session::get('user')['id'];
+
+        $allItems = Cart::where('user_id', $userId)->get();
+      
+        //Validate Form
+        $request->validate([
+            'address' => 'required',
+            'payment_method' => 'required'
+        ]);
+
+        //Store Order in order Table
+        foreach($allItems as $orderItem){
+          $order = new Order;
+          $order->product_id = $orderItem->product_id;
+          $order->user_id = $orderItem->user_id;
+          $order->status = 'Pending';
+          $order->payment_method = $request->payment_method;
+          $order->payment_status = 'Pending';
+          $order->address = $request->address;
+
+          $order->save();
+
+
+          //delete items from cart
+          $allItems = Cart::where('user_id', $userId)->delete();
+      
+        }
+
+        return redirect(route('home'))->with('status', 'Order Successfully Created');
     }
 }

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="section">
-        @include('layouts.errors')
         <div class="container">
+          @include('layouts.errors')
             <div class="row">
                     @foreach ($products as $product)
                     <div class="col-md-3 mb-3 ">
@@ -60,11 +60,6 @@
                         </div>
                     </div>
                     @endforeach
-                   
-                 
-                    
-                   
-               
             </div>
         </div>
     </div>

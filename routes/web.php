@@ -31,6 +31,13 @@ Route::get('cart', [ProductController::class, 'cartItems'])->name('cart_items');
 //Remove item from cart
 Route::post('remove/{id}', [ProductController::class, 'removeItem'])->name('remove_item');
 
+
+//Order Now
+Route::get('orderNow', [ProductController::class, 'orderNow'])->name('make_order');
+
+//Place Order
+Route::post('placeOrder', [ProductController::class, 'placeOrder'])->name('place_order');
+
 //Get login route
 Route::get('/login', function(){
     return view('my_auth.login');

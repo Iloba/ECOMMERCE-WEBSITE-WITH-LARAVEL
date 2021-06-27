@@ -3,6 +3,7 @@
     <div class="container">
         @include('layouts.errors')
         <div class="col-md-12 mb-2">
+            <a href="{{route('make_order')}}" class="btn btn-success mb-2">Order Now</a>
             @foreach ($products as $product)
                 <div class="card mb-3 p-2">
                     <div class="row">
