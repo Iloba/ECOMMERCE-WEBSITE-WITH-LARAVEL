@@ -42,8 +42,37 @@ class UserController extends Controller
         } 
     }
 
+
+
     public function logoutUser(){
         Session::forget('user');
         return redirect()->route('login');
     }
+
+    //Register User
+    public function registerUser(Request $request){
+       
+        //to register a user, we have to validate the request
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed', 
+        ]);
+
+        //Register User
+        $user = new User;
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
+        $user->save();
+
+        //Start Sesssion
+        $request->session()->put('user', $user);
+         return redirect()->route('home');
+
+
+    }
+
 }

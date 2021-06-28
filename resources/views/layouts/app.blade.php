@@ -54,6 +54,13 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (session()->has('user'))
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('cart_items')}}">Cart <span class="badge badge-success">{{$total}}</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('track_order')}}">Track your Orders</a>
+                                </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{session('user')->name }}
@@ -70,19 +77,17 @@
                                         </form>
                                     </div>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{route('cart_items')}}">Cart <span class="badge badge-success">{{$total}}</span></a>
-                                </li>
                             @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
-                            @endif
-                            
-                            @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
+                            @endif
+                            
+                            @if (Route::has('register'))
+                               
                             @endif
                         @else
                             <li class="nav-item dropdown">

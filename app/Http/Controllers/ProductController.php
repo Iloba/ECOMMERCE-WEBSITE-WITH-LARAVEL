@@ -42,11 +42,6 @@ class ProductController extends Controller
             $cart->save();
 
 
-        
-           
-
-
-
             //redirect
             return redirect()->route('home')->with('status', 'Product Added to Cart');
 
@@ -155,5 +150,20 @@ class ProductController extends Controller
         }
 
         return redirect(route('home'))->with('status', 'Order Successfully Created');
+    }
+
+    //Track your Order
+    public function trackOrder(){
+        
+        //Get session id
+        $userId = Session::get('user')['id'];
+        $orderedItems = DB::table('orders')
+        ->join('products', 'orders.product_id', '=', 'products.id')
+        ->where('orders.user_id', $userId)
+        ->get();
+
+        return view('pages.track_order', [
+            'orderedItems' => $orderedItems
+        ]);
     }
 }

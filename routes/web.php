@@ -38,10 +38,21 @@ Route::get('orderNow', [ProductController::class, 'orderNow'])->name('make_order
 //Place Order
 Route::post('placeOrder', [ProductController::class, 'placeOrder'])->name('place_order');
 
+//Track your Orders
+Route::get('myOrders', [ProductController::class, 'trackOrder'])->name('track_order');
+
 //Get login route
 Route::get('/login', function(){
     return view('my_auth.login');
 })->name('login');
+
+//Register user page
+Route::get('/register', function(){
+    return view('my_auth.register');
+})->name('register_page');
+
+//Register User
+Route::post('/register', [UserController::class, 'registerUser'])->name('register');
 
 //logout route
 Route::post('logout', [UserController::class, 'logoutUser'])->name('logout');
