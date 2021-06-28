@@ -26,6 +26,14 @@ class ProductController extends Controller
         //Check if a user is logged in before adding to cart
         if($request->session()->has('user')){
             
+
+             
+            //Check if product is already in cart
+           if(Cart::where('product_id', $request->product_id)->exists()){
+                return redirect()->route('home')->with('error', 'Products already in cart');
+
+            }
+
             //Add Product to cart
             $cart = new Cart;
             $cart->product_id = $request->product_id;
@@ -34,9 +42,7 @@ class ProductController extends Controller
             $cart->save();
 
 
-         
-            //if product is already in cart
-            //get all users cart items
+        
            
 
 
