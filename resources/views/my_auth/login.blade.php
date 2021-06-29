@@ -4,6 +4,10 @@
         <div class="row justify-content-center">
           
                 <div class="col-md-8">
+                    <div class="display-on-mobile">
+                        <h1 class="bolder">Welcome back,</h1>
+                         <h4 class="bold">Kindly fill in details to log in</h4>
+                    </div>
                     <div class="d-flex">
                         <div class="img-box m-5">
                             <h1 class="bolder">Welcome back,</h1>

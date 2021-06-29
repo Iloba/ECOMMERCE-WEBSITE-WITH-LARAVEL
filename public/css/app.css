@@ -10958,12 +10958,31 @@ ul li a{
   background-position: bottom right;
   background-repeat: no-repeat;
 }
+.display-on-mobile{
+  display: none;
+  
+}
 @media screen and (max-width: 600px){
   footer  h3{
     text-align: center;
   }
   footer ul li{
     text-align: center;
+  }
+  .relax{
+    display: none;
+  }
+  .form-box{
+    width: 100%;
+    display: block;
+  }
+  .img-box{
+    display: none;
+  }
+  .display-on-mobile{
+    display: block;
+    text-align: center;
+    color: #ba7632;
   }
 }
 
